@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/about",
+    "pages/index/list",
+    "pages/index/done",
+    "pages/index/calendar"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "待办清单",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#222",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/list",
+        "text": "列表",
+        "iconPath": "assets/list.png",
+        "selectedIconPath": "assets/list-active.png"
+      },
+      {
+        "pagePath": "pages/index/done",
+        "text": "已完成",
+        "iconPath": "assets/done.png",
+        "selectedIconPath": "assets/done-active.png"
+      },
+      {
+        "pagePath": "pages/index/calendar",
+        "text": "日历",
+        "iconPath": "assets/calendar.png",
+        "selectedIconPath": "assets/calendar-active.png"
+      },
+      {
+        "pagePath": "pages/index/about",
+        "text": "关于",
+        "iconPath": "assets/about.png",
+        "selectedIconPath": "assets/about-active.png"
+      }
+    ]
+  }
+}

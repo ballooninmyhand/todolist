@@ -1,0 +1,21 @@
+<!--pages/index/about.wxml-->
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+</view>
+<view class="about">
+  <text>
+    Hi，你好！
+
+    欢迎使用小程序待办清单 TodoList。
+
+    使用过程中如有问题，欢迎反馈给我，我的邮箱地址：
+    18852951201@163.com。
+
+    感谢你的支持，谢谢！
+    
+  </text>
+</view>
