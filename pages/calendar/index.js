@@ -1,11 +1,12 @@
-// pages/index/list.js
+// pages/calendar/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    show: false,
+    dateInfo: {}
   },
 
   /**
@@ -62,5 +63,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  submit: function(e) {
+    this.setData({
+      dateInfo: e.detail
+    })
+  },
+  showDatePickerPlus: function() {
+    this.setData({
+      show: true
+    })
   }
 })

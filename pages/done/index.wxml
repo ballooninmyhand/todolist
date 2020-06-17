@@ -1,0 +1,21 @@
+<!--pages/done/index.wxml-->
+<block wx:if="{{count}}">
+  <view class="todo-list">
+    <block wx:for="{{todoList}}" wx:key="key">
+      <block wx:if="{{item.completed}}">
+        <view class="todo-item">
+          <checkbox bindtap="checkboxChangeHandle" class="todo-checkbox" data-index="{{index}}" value="{{index}}" checked></checkbox>
+          <view class="item" bindtap="gotoDetailPage" data-index="{{index}}">
+            <text class="item-title">{{item.title}}</text>
+            <text class="item-date">{{item.dateDesc}}</text>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+</block>
+<block wx:else>
+  <view class="no-data">
+    暂无数据
+  </view>
+</block>

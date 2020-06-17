@@ -1,0 +1,13 @@
+<!--pages/detail/index.wxml-->
+<view class="todo-item">
+  <checkbox class="todo-checkbox" wx:if="{{todo.completed}}" checked disabled></checkbox>
+  <checkbox class="todo-checkbox" wx:else disabled></checkbox>
+  <input class="todo-title" value="{{todo.title}}" placeholder="输入待办事项..." bindinput="inputChangeHandle" bindconfirm="inputChangeHandle"/>
+  <image class="delete-image" src="../../images/delete.png" bindtap="deleteTodoHandle" />
+</view>
+<view class="date">
+  <text class="date-desc">日期</text>
+  <text class="date-text" bindtap="showDatePickerPlus">{{todo.dateDesc}}</text>
+</view>
+<textarea placeholder="描述..." bindblur="saveTodoDesc" bindconfirm="saveTodoDesc" value="{{todo.desc}}"></textarea>
+<datepicker-plus bind:submit='submitDatePicker' showDatePickerPlus="{{showDatePicker}}" initDate="{{todo.dateFormat}}"></datepicker-plus>

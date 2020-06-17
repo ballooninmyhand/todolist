@@ -1,13 +1,30 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<!--pages/index/index.wxml-->
+<!-- 添加待办事项 -->
+<view class="add-todo">
+  <image class="add-image" src="../../images/add.png" />
+  <input class="add-input" value="{{input}}" placeholder="输入待办事项..." bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
+  <image class="jiantou-image" src="../../images/jiantou.png" bindtap="addTodoHandle" />
+</view>
+
+<!-- 待办事项列表 -->
+<block wx:if="{{count}}">
+  <view class="todo-list">
+    <block wx:for="{{todoList}}" wx:key="key">
+      <block wx:if="{{!item.completed}}">
+        <view class="todo-item">
+          <checkbox bindtap="checkboxChangeHandle" class="todo-checkbox" data-index="{{index}}" value="{{index}}"></checkbox>
+          <view class="item" bindtap="gotoDetailPage" data-index="{{index}}">
+            <text class="item-title">{{item.title}}</text>
+            <text class="item-date">{{item.dateDesc}}</text>
+          </view>
+        </view>
+      </block>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+</block>
+<block wx:else>
+  <view class="no-data">
+    暂无数据
   </view>
-</view>
+</block>
+

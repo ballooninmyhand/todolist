@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/index/about",
-    "pages/index/list",
-    "pages/index/done",
-    "pages/index/calendar"
+    "pages/index/index",
+    "pages/detail/index",
+    "pages/done/index",
+    "pages/calendar/index",
+    "pages/about/index"
   ],
   "window":{
     "backgroundTextStyle": "light",
@@ -20,25 +21,19 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/index/list",
+        "pagePath": "pages/index/index",
         "text": "列表",
         "iconPath": "assets/list.png",
         "selectedIconPath": "assets/list-active.png"
       },
       {
-        "pagePath": "pages/index/done",
+        "pagePath": "pages/done/index",
         "text": "已完成",
         "iconPath": "assets/done.png",
         "selectedIconPath": "assets/done-active.png"
       },
       {
-        "pagePath": "pages/index/calendar",
-        "text": "日历",
-        "iconPath": "assets/calendar.png",
-        "selectedIconPath": "assets/calendar-active.png"
-      },
-      {
-        "pagePath": "pages/index/about",
+        "pagePath": "pages/about/index",
         "text": "关于",
         "iconPath": "assets/about.png",
         "selectedIconPath": "assets/about-active.png"

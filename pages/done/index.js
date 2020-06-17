@@ -1,13 +1,10 @@
-// pages/index/index.js
-var util = require('../../utils/util.js')
-
+// pages/done/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    input: '',
     todoList: [],
     count: 0
   },
@@ -69,22 +66,30 @@ Page({
   },
 
   /**
-   * 新增待办事项
+   * 获取本地存储中的待办事项
    */
-  addTodoHandle: function () {
-    if (!this.data.input || !this.data.input.trim()) return
-    var todoList = this.data.todoList ? this.data.todoList : []
-    var date = util.getDate(new Date())
-    // 将待办事项 push 到列表中
-    todoList.push({
-      title: this.data.input,
-      dateDesc: util.formatDate(date[0], date[1], date[2], 'CN'),
-      dateFormat: util.formatDate(date[0], date[1], date[2]),
-      completed: false,
-      desc: ''
-    })
+  load: function () {
+    var todoList = wx.getStorageSync('todoList')
+    var count = 0
+    for (var i = 0; i < todoList.length; i++) {
+      if (todoList[i].completed) {
+        count++
+      }
+    }
     this.setData({
-      input: '',
+      todoList: todoList,
+      count: count
+    })
+  },
+
+  /**
+   * 取消完成待办事项
+   */
+  checkboxChangeHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var todoList = this.data.todoList
+    todoList[index].completed = false
+    this.setData({
       todoList: todoList
     })
     this.save()
@@ -96,47 +101,6 @@ Page({
    */
   save: function () {
     wx.setStorageSync('todoList', this.data.todoList)
-  },
-
-  /**
-   * 待办事项输入框 value 值变化
-   */
-  inputChangeHandle: function (e) {
-    this.setData({
-      input: e.detail.value
-    })
-  },
-
-  /**
-   * 获取本地存储中的待办事项
-   */
-  load: function () {
-    var todoList = wx.getStorageSync('todoList')
-    var count = 0
-    for (var i = 0; i < todoList.length; i++) {
-      if (!todoList[i].completed) {
-        count++
-      }
-    }
-    this.setData({
-      input: '',
-      todoList: todoList,
-      count: count
-    })
-  },
-
-  /**
-   * 完成待办事项
-   */
-  checkboxChangeHandle: function (e) {
-    var index = e.currentTarget.dataset.index
-    var todoList = this.data.todoList
-    todoList[index].completed = true
-    this.setData({
-      todoList: todoList
-    })
-    this.save()
-    this.load()
   },
 
   /**

@@ -1,5 +1,4 @@
-/* pages/index/about.wxss */
-/**index.wxss**/
+/* pages/about/index.wxss */
 page {
   background-color: #f0ebeb;
 }

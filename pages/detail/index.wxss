@@ -1,0 +1,59 @@
+/* pages/detail/index.wxss */
+page {
+  background-color: #f0ebeb;
+}
+
+.todo-item {
+  display: flex;
+  width: 695rpx;
+  margin: 13rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 13rpx;
+}
+
+.todo-checkbox {
+  transform: scale(0.8, 0.8);
+  color: #fff;
+}
+
+.todo-title {
+  width: 600rpx;
+  margin: 6rpx;
+}
+
+.delete-image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 5rpx 10rpx;
+}
+
+.date {
+  width: 695rpx;
+  margin: 30rpx 13rpx;
+  padding: 15rpx;
+}
+
+.date-desc {
+  display: inline-block;
+}
+
+.date-text {
+  display: inline-block;
+  background-color: #fff;
+  width: 250rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 5px;
+  margin-left: 25rpx;
+}
+
+textarea {
+  display: flex;
+  width: 695rpx;
+  margin: 30rpx 13rpx;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 13rpx;
+}

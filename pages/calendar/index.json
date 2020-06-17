@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "datepicker-plus": "/components/datepicker-plus/index"
+  }
+}
