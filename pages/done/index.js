@@ -76,10 +76,12 @@ Page({
         count++
       }
     }
+    todoList.sort(this.sortFun(`timestamp`, false))
     this.setData({
       todoList: todoList,
       count: count
     })
+    this.save()
   },
 
   /**
@@ -111,5 +113,28 @@ Page({
     wx.navigateTo({
       url: '/pages/detail/index?index=' + index,
     })
+  },
+
+  /**
+   * 排序
+   */
+  sortFun: function (attr, rev) {
+    if (rev == undefined) {
+      rev = 1
+    } else {
+      rev = rev ? 1 : -1
+    }
+
+    return function (a, b) {
+      a = a[attr]
+      b = b[attr]
+      if (a < b) {
+        return rev * -1
+      }
+      if (a > b) {
+        return rev * 1
+      }
+      return 0
+    }
   }
 })

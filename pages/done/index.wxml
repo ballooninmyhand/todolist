@@ -7,7 +7,7 @@
           <checkbox bindtap="checkboxChangeHandle" class="todo-checkbox" data-index="{{index}}" value="{{index}}" checked></checkbox>
           <view class="item" bindtap="gotoDetailPage" data-index="{{index}}">
             <text class="item-title">{{item.title}}</text>
-            <text class="item-date">{{item.dateDesc}}</text>
+            <text class="item-date">{{item.dateStr}}</text>
           </view>
         </view>
       </block>

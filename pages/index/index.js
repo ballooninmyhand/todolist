@@ -84,9 +84,13 @@ Page({
       desc: ''
     })
     this.setData({
-      input: '',
       todoList: todoList
     })
+    setTimeout(() => {
+      this.setData({
+        input: ''
+      })
+    }, 100)
     this.save()
     this.load()
   },
@@ -117,12 +121,17 @@ Page({
       if (!todoList[i].completed) {
         count++
       }
+      var dateArr = this.getDateStr(todoList[i].dateFormat)
+      todoList[i].dateStr = dateArr[0]
+      todoList[i].timestamp = dateArr[1]
     }
+    todoList.sort(this.sortFun(`timestamp`))
     this.setData({
       input: '',
       todoList: todoList,
       count: count
     })
+    this.save()
   },
 
   /**
@@ -147,5 +156,53 @@ Page({
     wx.navigateTo({
       url: '/pages/detail/index?index=' + index,
     })
+  },
+
+  /**
+   * 获取日期格式
+   */
+  getDateStr: function (n) {
+    var dateStr = ''
+    var repTime = n.replace(/-/g, '/')
+    var timestamp = Date.parse(repTime) / 1000
+    var date = util.getDate(new Date(timestamp * 1000))
+    var currentDate = util.getDate(new Date())
+    var currentTimestamp = Date.parse(currentDate[0] + '/' + currentDate[1] + '/' + currentDate[2]) / 1000
+    if (timestamp == currentTimestamp) {
+      dateStr = '今天'
+    } else if (timestamp == currentTimestamp - 86400) {
+      dateStr = '昨天'
+    } else if (timestamp == currentTimestamp + 86400) {
+      dateStr = '明天'
+    } else if (currentDate[0] == date[0]) {
+      dateStr = date[1] + '月' + date[2] + '日'
+    } else {
+      dateStr = date[0] + '年' + date[1] + '月' + date[2] + '日'
+    }
+
+    return [dateStr, timestamp]
+  },
+
+  /**
+   * 排序
+   */
+  sortFun: function (attr, rev) {
+    if (rev == undefined) {
+      rev = 1
+    } else {
+      rev = rev ? 1 : -1
+    }
+
+    return function (a, b) {
+      a = a[attr]
+      b = b[attr]
+      if (a < b) {
+        return rev * -1
+      }
+      if (a > b) {
+        return rev * 1
+      }
+      return 0
+    }
   }
 })

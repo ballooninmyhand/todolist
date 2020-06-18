@@ -20,7 +20,8 @@ page {
 
 .add-input {
   width: 600rpx;
-  margin: 6rpx;
+  margin: 6rpx 14rpx;
+  padding-left: 10rpx;
 }
 
 .jiantou-image {
@@ -52,7 +53,7 @@ page {
 
 .item-title {
   display: inline-block;
-  width: 360rpx;
+  width: 400rpx;
   line-height: 50rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -61,7 +62,7 @@ page {
 
 .item-date {
   display: inline-block;
-  width: 270rpx;
+  width: 230rpx;
   font-size: 24rpx;
   color: #ccc;
   line-height: 50rpx;

@@ -1539,7 +1539,6 @@ Component({
         let nlDateNoYear = nlDateHandlerNoYear(this.data.nlDateNoYearMutiIndex);
         let glDateMutiIndex = this.data.glDateMutiIndex;
         let glDateNoYearMutiIndex = this.data.glDateNoYearMutiIndex;
-        console.log(this.data.initDate)
         let [y,m,d] = this.data.initDate.split('-');
         glDateMutiIndex = [glYear.indexOf(parseInt(y)), parseInt(m) - 1, parseInt(d) - 1];
         let glDate = glDateHandler(glDateMutiIndex);

@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <!-- 添加待办事项 -->
 <view class="add-todo">
-  <image class="add-image" src="../../images/add.png" />
+  <!-- <image class="add-image" src="../../images/add.png" /> -->
   <input class="add-input" value="{{input}}" placeholder="输入待办事项..." bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
   <image class="jiantou-image" src="../../images/jiantou.png" bindtap="addTodoHandle" />
 </view>
@@ -15,7 +15,7 @@
           <checkbox bindtap="checkboxChangeHandle" class="todo-checkbox" data-index="{{index}}" value="{{index}}"></checkbox>
           <view class="item" bindtap="gotoDetailPage" data-index="{{index}}">
             <text class="item-title">{{item.title}}</text>
-            <text class="item-date">{{item.dateDesc}}</text>
+            <text class="item-date">{{item.dateStr}}</text>
           </view>
         </view>
       </block>
